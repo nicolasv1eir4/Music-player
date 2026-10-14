@@ -1,0 +1,254 @@
+/* =========================================
+   1. Configurações gerais
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --background: #101719;
+    --panel: #1b2528;
+    --panel-light: #293538;
+    --accent: #b9c9cb;
+    --accent-dark: #64787c;
+    --text: #f2f5f5;
+    --text-secondary: #9ba9ab;
+    --border: #3b484b;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #344448 0%, transparent 48%),
+        var(--background);
+    color: var(--text);
+}
+
+/* =========================================
+   2. Container principal
+   ========================================= */
+
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+/* =========================================
+   3. Barra superior
+   ========================================= */
+
+.top-bar {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.top-bar h1,
+.logo {
+    color: var(--text);
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.status {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* =========================================
+   4. Cartão do player
+   ========================================= */
+
+.player-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 28px;
+    background: linear-gradient(
+        145deg,
+        var(--panel-light),
+        var(--panel)
+    );
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: 0 20px 50px #00000070;
+}
+
+/* =========================================
+   5. Capa do álbum
+   ========================================= */
+
+.album-cover {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 14px;
+    background-color: #202a2d;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 25px #00000050;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* =========================================
+   6. Informações da música
+   ========================================= */
+
+.music-info {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.music-info h2,
+#music-title {
+    color: var(--text);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+.music-info p,
+#artist-name {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* =========================================
+   7. Barra de progresso
+   ========================================= */
+
+.progress-container {
+    margin-top: 25px;
+}
+
+#progress {
+    width: 100%;
+    height: 6px;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 10px;
+    background: #48575a;
+    cursor: pointer;
+}
+
+#progress::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px #b9c9cb50;
+}
+
+#progress::-moz-range-thumb {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #ffffff;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 9px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* =========================================
+   8. Botões de controle
+   ========================================= */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 26px;
+}
+
+.controls button {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.controls button:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+#play {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #172124;
+    font-size: 23px;
+    box-shadow: 0 0 20px #b9c9cb25;
+}
+
+#play:hover {
+    background: #e0e9ea;
+    transform: scale(1.06);
+}
+
+/* =========================================
+   9. Controle de volume
+   ========================================= */
+
+.volume-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+    color: var(--text-secondary);
+}
+
+#volume {
+    width: 120px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+/* =========================================
+   10. Ajuste para celulares
+   ========================================= */
+
+@media (max-width: 480px) {
+    .player-container {
+        padding: 20px;
+    }
+
+    .controls {
+        gap: 20px;
+    }
+
+    .music-info h2,
+    #music-title {
+        font-size: 19px;
+    }
+}
